@@ -50,7 +50,7 @@ with col3:
 st.divider()
 
 #BARIS 2: PERBANDINGAN PENGGUNA (GAMBAR 2)
-st.subheader("1. Perbandingan Tipe Pengguna: Casual vs Registered")
+st.subheader("Perbandingan Tipe Pengguna Penyewa Sepeda: Casual vs Registered")
 
 #Grouping data
 user_type_rentals = filtered_df.groupby('yr')[['casual', 'registered']].sum().reset_index()
@@ -69,7 +69,7 @@ st.pyplot(fig)
 col_left, col_right = st.columns(2)
 
 with col_left:
-    st.subheader("2. Tren Musiman (Peak Season)")
+    st.subheader("Tren Penyewaan Sepeda Berdasarkan Musim (Peak Season)")
     season_rentals = filtered_df.groupby(['yr', 'season'])['cnt'].sum().reset_index()
     
     fig2, ax2 = plt.subplots(figsize=(8, 6))
@@ -78,7 +78,7 @@ with col_left:
     st.pyplot(fig2)
 
 with col_right:
-    st.subheader("3. Rata-rata Sewa Sepeda Berdasarkan Suhu")
+    st.subheader("Rata-rata Penyewaan Sepeda Berdasarkan Suhu")
     #MENGURUTKAN KATEGORI SUHU
     temp_order = ['Cold', 'Moderate', 'Hot']
     temp_rentals = filtered_df.groupby(['yr', 'temp_category'], observed=False)['cnt'].mean().reset_index()
